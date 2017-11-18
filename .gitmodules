@@ -1,0 +1,6 @@
+[submodule "libs/ArduinoJson"]
+	path = libs/ArduinoJson
+	url = https://github.com/bblanchon/ArduinoJson.git
+[submodule "libs/Time"]
+	path = libs/Time
+	url = https://github.com/PaulStoffregen/Time.git
