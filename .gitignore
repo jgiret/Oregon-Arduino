@@ -54,3 +54,6 @@ dkms.conf
 # Build directories
 build*/
 
+# MacOS specific files
+.DS_Store
+

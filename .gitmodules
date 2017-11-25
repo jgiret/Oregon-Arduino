@@ -4,3 +4,12 @@
 [submodule "libs/Time"]
 	path = libs/Time
 	url = https://github.com/PaulStoffregen/Time.git
+[submodule "libs/test/--recursive"]
+	path = libs/test/--recursive
+	url = https://github.com/ikeyasu/arduino-mock.git
+[submodule "libs/test/arduino-mock"]
+	path = libs/test/arduino-mock
+	url = https://github.com/ikeyasu/arduino-mock.git
+[submodule "libs/test/googlemock"]
+	path = libs/test/googlemock
+	url = https://github.com/google/googlemock.git
