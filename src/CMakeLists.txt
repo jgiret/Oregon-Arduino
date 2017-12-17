@@ -23,7 +23,12 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-threadsafe-statics")
 
 file(GLOB SOURCES_OOK
  	${PARENT_DIR}/src/DecodeOOK/*.cpp
- 	${PARENT_DIR}/src/DecodeOOK/*.h)
+ 	${PARENT_DIR}/src/DecodeOOK/*.h
+ 	${PARENT_DIR}/src/LCD/*.cpp
+ 	${PARENT_DIR}/src/LCD/*.h
+ 	${PARENT_DIR}/src/Utils/*.cpp
+ 	${PARENT_DIR}/src/Utils/*.h
+ 	)
 
 
 print_board_list()

@@ -9,11 +9,34 @@
 
 #include "DecodeOOK.h"
 
+/**
+ * @brief Class OregonDecoderV2
+ * @details OrgeonDecoderV2 inherits from DecodeOOK and is used to
+ */
 class OregonDecoderV2 : public DecodeOOK {
-public:
-    OregonDecoderV2();
-    virtual void gotBit (char value);
-    virtual char decode (word width);
+ public:
+  /**
+   * @brief [brief description]
+   * @details [long description]
+   */
+  OregonDecoderV2();
+
+  /**
+   * @brief [brief description]
+   * @details [long description]
+   *
+   * @param value [description]
+   */
+  virtual void gotBit(char value);
+
+  /**
+   * @brief [brief description]
+   * @details [long description]
+   *
+   * @param width [description]
+   * @return [description]
+   */
+  virtual char decode(word width);
 };
 
 #endif

@@ -10,10 +10,10 @@
 #include "DecodeOOK.h"
 
 class OregonDecoderV3 : public DecodeOOK {
-public:
-    OregonDecoderV3();
-    virtual void gotBit (char value);
-    virtual char decode (word width);
+ public:
+  OregonDecoderV3();
+  virtual void gotBit(char value);
+  virtual char decode(word width);
 };
 
 #endif

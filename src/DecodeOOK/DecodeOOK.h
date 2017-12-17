@@ -9,72 +9,89 @@
 
 #include <Arduino.h>
 
-typedef uint16_t word ;
+typedef uint16_t word;
 
 class DecodeOOK {
+ protected:
+  byte total_bits;
+  byte bits;
+  byte flip;
+  byte state;
+  byte pos;
+  byte data[25];
 
-protected:
-    byte total_bits;
-    byte bits;
-    byte flip;
-    byte state;
-    byte pos;
-    byte data[25];
+  virtual char decode(word width) = 0;
 
-    virtual char decode (word width) =0;
-    
-public:
+ public:
+  //
+  enum { UNKNOWN, T0, T1, T2, T3, OK, DONE };
 
-    //
-    enum { UNKNOWN, T0, T1, T2, T3, OK, DONE };
+  /**
+   * @brief Class constructor
+   * @details [long description]
+   * @return None
+   */
+  DecodeOOK();
 
-    /**
-     * @brief Class constructor
-     * @details [long description]
-     * @return None
-     */
-    DecodeOOK ();
+  /**
+   * @brief [brief description]
+   * @details [long description]
+   * @return [description]
+   */
+  byte getState();
 
+  /**
+   * @brief [brief description]
+   * @details [long description]
+   *
+   * @param width [description]
+   * @return [description]
+   */
+  bool nextPulse(word width);
 
-    
-    byte getState();
+  /**
+   * @brief [brief description]
+   * @details [long description]
+   * @return [description]
+   */
+  bool isDone() const;
 
+  /**
+   * @brief [brief description]
+   * @details [long description]
+   *
+   * @param count [description]
+   * @return [description]
+   */
+  const byte* getData(byte& count) const;
 
-    /**
-     * @brief [brief description]
-     * @details [long description]
-     * 
-     * @param width [description]
-     * @return [description]
-     */
-    bool nextPulse (word width);
-    
-    /**
-     * @brief [brief description]
-     * @details [long description]
-     * @return [description]
-     */
-    bool isDone () const ;
+  /**
+   * @brief [brief description]
+   * @details [long description]
+   */
+  void resetDecoder();
 
-    const byte* getData (byte& count) const ;
-    
-    void resetDecoder () ;
-    
-    // add one bit to the packet data buffer
-    
-    virtual void gotBit (char value) ;
-    
-    // store a bit using Manchester encoding
-    void manchester (char value) ;
-    
-    // move bits to the front so that all the bits are aligned to the end
-    void alignTail (byte max =0) ;
-    
-    void reverseBits () ;
-    
-    void reverseNibbles () ;
+  /**
+   * @brief Add one bit to the packet data buffer
+   * @details [long description]
+   *
+   * @param value [description]
+   */
+  virtual void gotBit(char value);
 
-    void done();
+  /**
+   * @brief Store a bit using Manchester encoding
+   * @details [long description]
+   *
+   * @param value [description]
+   */
+  void manchester(char value);
+
+  /**
+   * @brief [brief description]
+   * @details [long description]
+   */
+  void done();
 };
 
 #endif
